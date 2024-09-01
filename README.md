@@ -1,7 +1,5 @@
-# priceofacar
-GitHub Repository for work done on Professional Certificate in Machine Learning and Artificial Intelligence - December 2022
 
-# Practical Application Assignment 11.1: What Drives the Price of a Car?
+# Practical Application : What Drives the Price of a Car?
 
 **Contents**
 
