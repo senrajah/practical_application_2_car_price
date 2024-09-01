@@ -95,4 +95,3 @@ These models  provided the following model feature selection:
 
 For Next Steps, while the recommended models (i.e., ``Model7`` etc.) can be deployed, we would also recommend gathering more quality data that would produce a model with an accuracy of 75%+ based on used cars data no more than 10-15 years old.
 
-Updated data should also provide a better indication on the latest features that consumers are looking for so that the Dealership can source these cars for their inventory.
