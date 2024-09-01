@@ -22,8 +22,6 @@ The objective is to build a model to find out what features impacts and make the
 Again the objective is build a model to identify the features which impacts the car price by building a linear regression model. 
 For this we follow the CRISP-DM frame work.
 
-Source - https://centricconsulting.com/blog/machine-learning-a-quick-introduction-and-five-core-steps/
-
 We analyse the data and prepare dataset that would be fit to train and fit the model. For this we follow the data preparation and split the data into train and test.
 
 We build the model and train the model with the training data set and use the test dataset to evaluate the model and find their accuracy and score to find the best fit model.
