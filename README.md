@@ -17,7 +17,7 @@ GitHub Repository for work done on Professional Certificate in Machine Learning 
  
 ## Introduction
 
-This repository contains the Jupyter Notebook for the Application Assignment 11.1. This takes a sample jupyter notebook to complete the exercise to analyse Kaggle used car data in [vehicles.csv](https://github.com/yemifalokun/priceofacar/blob/main/data/vehicles.csv) file in the data folder of this repository to build a machine learning application that evaluates if vehicles features like Fuel, Condition, Size, Type, Color etc. can be used to determine used car prices for the Car Dealership and Sales Team. This evaluation will help the Car Dealership with fine tuning their inventory by stocking cars that consumers are interested in.
+The objective is to build a model to find out what features impacts and make the price of the car more expensive or less expensive, for this we used a data from kaggle at this location [vehicles.csv](https://github.com/yemifalokun/priceofacar/blob/main/data/vehicles.csv), if vehicles features like Fuel, Condition, Size, Type, Color etc. can be used to determine used car prices for the Car Dealership and Sales Team. This evaluation will help the Car Dealership with fine tuning their inventory by stocking cars that consumers are interested in.
 
 ## How to use the files in this repository?
 
@@ -29,36 +29,34 @@ The notebooks are grouped into the following categories:
 
 ## Business Understanding
 
-The business objective is to identify key features for used car prices based on the dataset provided so that Car Dealers and their Sales Team can use these key features to understand the cars that they need to have in their inventory to increase sales.
-
-For this application, we used a machine learning process which starts with gathering the data, cleaning, preparing and manipulating the data, training the model then testing to get predicted values and measure model accuracy. As part of the life cycle, additional data from sales should be used on an on-going bases to “improve” the model which leads to higher prediction accuracy on the factors that  consumers are looking for in used cars. 
-
-![Machine Learning Overview!](./images/Machine-Learning-Process-Overview.jpeg)
+Again the objective is build a model to identify the features which impacts the car price by building a linear regression model. 
+For this we follow the CRISP-DM frame work.
 
 Source - https://centricconsulting.com/blog/machine-learning-a-quick-introduction-and-five-core-steps/
 
+We analyse the data and prepare dataset that would be fit to train and fit the model. For this we follow the data preparation and split the data into train and test.
+
+We build the model and train the model with the training data set and use the test dataset to evaluate the model and find their accuracy and score to find the best fit model.
+
 
 ## Data Understanding
-
-The first thing that was apparent from the provided data was that it was not clean, it had missing values and some of the values were not realistic for used cars, for example, odometer with zero and single digit values; price with zero and single digits values.
-
-As you can see from the Diagram above, there are car prices with zero value for all conditions.
+The provided data consists of the features like color, fuel type, odometer reading, year, engine type etc. The data is not ready to fit the model straight away, since it has NaN values in most of the features and also some of the columns are irrelevant to the model or they does not have any relation to the price of the car like ID, VIN etc
 
 ## Data Preparation
 
-Summary of the Data Preparation is as follows:
-- Remove records with Zero Prices and Odometer values
-- Remove records where some of the factors are not populated
-- Drop a number of factors (i.e., VIN, id, region etc.) that are not significant in user car price determination
-- Review and remove the other factors (i.e., state, paint color, manufacturer, transmission etc.) and check if they have an impact on car price based on the provided data
-- Filtering the data based on year on manufacture = 1990 as the number of vehicles before 1990 were very low
+We had to do the below to prepare and cleanse the data
+- Drop all the records with NaN values
+- Drop records with 0 values on the odometer and price, since they are not much of use
+- Drop features like ID, VIN, Region, state etc - irrelevant for price prediction
+- Also since most of the data are with Auto transmission - we removed those feature too
+- After the analysis we also find that the cars does not have much variance till the year 1990 - so we would consider only data after 1990
 
 
 ## Regression Models
 
-We ran a number of models (7 to be exact) to create 7 ML Models or AI Applications using the full set of features after data manipulation and a subset of features based on the correlation matrix between the features and used car prices. 
+We built several models with several features upto model 7. Each one with filters and including and excluding some features.
 
-Additional filtering (i.e., Price and Odometer > 5000 and Year > 1990) were also used to create datasets used from some of the models below.
+Filtering (i.e., Price and Odometer > 5000 and Year > 1990) were also used to create datasets used from some of the models below.
 
 For Most of these Models, the accuracy was less than 50% with the exception of the last 2 models. See table below:
 
@@ -76,28 +74,8 @@ For Most of these Models, the accuracy was less than 50% with the exception of t
 
 Based on the scores, there is still some way to go to get to a model with a higher accuracy score with the highest score for training and testing data currently less than 50%
 
-It's also not a coincidence that the highest score of 47.52% and 48.26% reflects the highest numbers for correlation between these features and price from the correlation matrix.
-
 ## Findings
 
-In testing these models with the inputs, we observed the following for used car prices:
-
-| Model Name  	| Test Description                                                                     	| Predicted Used Car Price ($) 	|
-|-------------	|:--------------------------------------------------------------------------------------	|:----------------------------:	|
-| Model       	| New car with 100 miles, condition excellent and new with diesel and four wheel drive 	| -98,263.87                   	|
-| Model       	| New car with 100 miles, condition good and with Electric and front wheel drive       	| 29,013.33                    	|
-| Model1      	| New car with 100 miles                                                               	| 21,112.15                    	|
-| Model1      	| Old 2001 car with 90000 miles                                                        	| 17,566.90                    	|
-| Model2      	| New 2022 Car with 100 miles                                                          	| 26,627.40                    	|
-| Model3      	| Car with Year of 1980                                                                	| 18,540.07                    	|
-| Model3      	| Car with Year of 2020                                                                	| 18,914.62                    	|
-| Model4      	| Car with Odometer of 50000                                                           	| 5,919.20                     	|
-| Model4      	| Car with Odometer of 100000                                                          	| 11,838.40                    	|
-|             	|                                                                                      	|                              	|
-
-As you can see, the Machine Learning application "Model" built using all the final dataset from the data manipulation phase which included features like Odometer, Year, Condition, fuel type, drive train and size returns a negative value (i.e., -$98,263.87) which is not realistic for a "new car with 100 miles, condition excellent and new with diesel and four wheel drive".
-
-Same Model returned $29,013.33 for new car with 100 miles, condition good and with Electric and front wheel drive.
 
 For ML Applications ``Model6`` and ``Model7`` which are the recommended/selected models, see below for the prediction testing results:
 
@@ -118,9 +96,8 @@ When we analyze the importance of feature selection based on the trained model, 
 
 ## Next Steps and Recommendations
 
-As the data provided is not that clean with null, NAN, zero, missing and unrealistic values, further filering of the data could be done, for example, selecting used car records with year => 2000. 
 
-From the current models created, ``Model6`` and ``Model7`` would be the recommended models to use.  
+As analysed in the above models, ``Model6`` and ``Model7`` would make send and be the recommended models to use.  
 
 These models were built with the following logic:
 - ``Model6`` - Odometer and Price greater than 5000, Odometer, Year, fuel_diesel, drive_4wd  and size_full-size as the only inputs
