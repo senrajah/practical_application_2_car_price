@@ -6,26 +6,16 @@ GitHub Repository for work done on Professional Certificate in Machine Learning 
 **Contents**
 
  * [Introduction](#Introduction)
- * [How to use the files in this repository?](#how-to-use-the-files-in-this-repository)
  * [Business Understanding](#Business-Understanding)
  * [Data Understanding](#Data-Understanding)
  * [Data Preparation](#Data-Preparation)
- * [Regression Model](#Regression-Model)
+ * [Regression Models](#Regression-Model)
  * [Findings](#Findings)
  * [Next steps and Recommendations](#Next-steps-and-Recommendations)
- * [License](#license)
  
 ## Introduction
 
 The objective is to build a model to find out what features impacts and make the price of the car more expensive or less expensive, for this we used a data from kaggle at this location [vehicles.csv](https://github.com/yemifalokun/priceofacar/blob/main/data/vehicles.csv), if vehicles features like Fuel, Condition, Size, Type, Color etc. can be used to determine used car prices for the Car Dealership and Sales Team. This evaluation will help the Car Dealership with fine tuning their inventory by stocking cars that consumers are interested in.
-
-## How to use the files in this repository?
-
-The notebooks are grouped into the following categories:
- * ``data`` – vehicles.csv data file from Kaggle Machine Learning dataset repository used in the notebooks
- * ``images`` – Image files used in Notebook and Project Description
- * ``notebook`` – What Drives the Price of a Car Notebook
-
 
 ## Business Understanding
 
